@@ -19,7 +19,22 @@ await connectCloudinay();
 
 
 // middleware
-app.use(cors());
+const express = require('express');
+const cors = require('cors'); // Install with: npm install cors
+const app = express();
+
+// Apply CORS middleware
+app.use(cors({
+  origin: 'https://edemy-frontend-beta.vercel.app', // Allow requests from your frontend
+  // Or, for development (less secure for production):
+  // origin: '*'
+}));
+
+// ... rest of your routes and server logic ...
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
 app.use(clerkMiddleware())
 
 
