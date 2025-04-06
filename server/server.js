@@ -25,7 +25,7 @@ const app = express();
 
 // Apply CORS middleware
 app.use(cors({
-  origin: 'https://edemy-frontend-beta.vercel.app', // Allow requests from your frontend
+  origin: '*', // Allow requests from your frontend
   // Or, for development (less secure for production):
   // origin: '*'
 }));
