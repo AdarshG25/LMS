@@ -16,10 +16,16 @@ await connectDB();
 await connectCloudinay();
 
 // Apply middleware
+const allowedOrigins = [
+  'http://localhost:5173', // or your local dev port
+  'https://lms-frontend-rose-ten.vercel.app'
+];
+
 app.use(cors({
-  origin: 'https://lms-frontend-rose-ten.vercel.app',
+  origin: allowedOrigins,
   credentials: true
 }));
+
 app.use(clerkMiddleware());
 app.use(express.json());
 
